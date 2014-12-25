@@ -1,0 +1,50 @@
+
+Indentation Features
+====================
+
+
+Options involved
+----------------
+
+autoindent ai    Activate autoindent feature.
+
+expandtab et     In insert mode: Insert the appropriate number of spaces instead of real tab characters.
+
+shiftwidth sw    Number of spaces to use for each step of (auto)indent.
+
+softtabstop sts  Number of spaces that a <Tab> counts for while performing editing operations.
+
+
+Related insert mode commands
+----------------------------
+
+CTRL-T		Insert one shiftwidth of indent at the start of the current line.  
+CTRL-D		Delete one shiftwidth of indent at the start of the current line.
+0 CTRL-D	Delete all indent in the current line.
+^ CTRL-D	Delete all indent in the current line.  The indent is restored in the next line.
+                Note: In mvim the seems to work only with autoindent on.
+
+
+Related command mode commands
+-----------------------------
+>>       Shift lines one 'shiftwidth' rightwards.
+<<       Shift lines one 'shiftwidth' leftwards.
+
+
+Miscelaneous
+------------
+list           Option; list mode: Show tabs as CTRL-I is displayed, display $ after end of line.
+
+list or l      ex command; same as :print, but display unprintable characters with '^' and put $ after the line.
+
+
+Recipe for indentation without tabs
+-----------------------------------
+Set indentation width to 4; leave 'tabstop' at its default value.
+   set expandtab
+   set shiftwidth=4
+   set softtabstop=4
+
+Entering a real tab character in insert mode: <ctrl-v><tab> .
+
+    From http://vim.wikia.com/wiki/Indenting_source_code

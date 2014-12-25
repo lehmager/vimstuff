@@ -1,0 +1,18 @@
+
+Motion by screen portions
+-------------------------
+
+<ctrl> F     Scroll forward one screen
+
+<ctrl> B     Scroll backward one screen
+
+<ctrl> D     Scroll forward half screen
+
+<ctrl> U     Scroll backward half screen
+
+
+z <enter>    Move current line to top of screen and scroll.
+ 
+z.           Move current line to center of screen and scroll.
+ 
+z-           line to bottom of screen and scroll.

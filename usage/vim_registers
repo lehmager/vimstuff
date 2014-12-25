@@ -1,0 +1,43 @@
+
+Yank to Register
+----------------
+
+"xy{motion}		Yank {motion} text into register x, where x is from [a-z] .
+"Xy{motion}		Yank {motion} text and append to register x, where X is from [A-Z] .
+
+
+Record to Register
+------------------
+
+qx                      Record typed characters into register x, where x is from {0-9a-z"} .
+			(uppercase to append).
+
+q			Stops recording.
+
+
+@-Functions
+-----------
+@x                      Execute the contents(commands) of register x, where x is from [a-z] .
+
+   sample
+      Define @-function swapping current line for next line.
+
+      First solution:
+         While in normal mode type in current line "qaddpq" (without the enclosing double quotes)
+         This records the string ddp to register a. You may verify this fact by entering :reg a
+      
+      Second solution:
+         Write the string ddp to a separate line. Position cursor to begin of line and enter the string
+         "byw
+         thus mapping the string ddp to register b .
+      
+      Third solution:
+         Write the string ddp to a separate line. Now mark this string in visual mode and yank to register c
+         entering "cy while in visul mode.
+
+      Now entering @a or @b or @c in normal mode will swap lines.
+
+
+
+
+

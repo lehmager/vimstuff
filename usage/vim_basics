@@ -1,0 +1,5 @@
+basic commands, options you should know
+
+Ex commands
+-----------
+:so[urce] {file}	Read Ex commands from {file}.  These are commands that

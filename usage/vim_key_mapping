@@ -1,0 +1,138 @@
+
+Vim keycodes
+------------
+
+       0  00/00   00  00  NUL  (Ctrl-@)  NULL
+       1  00/01   01  01  SOH  (Ctrl-A)  START OF HEADING
+       2  00/02   02  02  STX  (Ctrl-B)  START OF TEXT
+       3  00/03   03  03  ETX  (Ctrl-C)  END OF TEXT
+       4  00/04   04  04  EOT  (Ctrl-D)  END OF TRANSMISSION
+       5  00/05   05  05  ENQ  (Ctrl-E)  ENQUIRY
+       6  00/06   06  06  ACK  (Ctrl-F)  ACKNOWLEDGE
+       7  00/07   07  07  BEL  (Ctrl-G)  BELL (Beep)
+       8  00/08   10  08  BS   (Ctrl-H)  BACKSPACE                   <BS>
+       9  00/09   11  09  HT   (Ctrl-I)  HORIZONTAL TAB
+      10  00/10   12  0A  LF   (Ctrl-J)  LINE FEED
+      11  00/11   13  0B  VT   (Ctrl-K)  VERTICAL TAB
+      12  00/12   14  0C  FF   (Ctrl-L)  FORM FEED
+      13  00/13   15  0D  CR   (Ctrl-M)  CARRIAGE RETURN              <CR>
+      14  00/14   16  0E  SO   (Ctrl-N)  SHIFT OUT
+      15  00/15   17  0F  SI   (Ctrl-O)  SHIFT IN
+      16  01/00   20  10  DLE  (Ctrl-P)  DATA LINK ESCAPE
+      17  01/01   21  11  DC1  (Ctrl-Q)  DEVICE CONTROL 1 (XON)
+      18  01/02   22  12  DC2  (Ctrl-R)  DEVICE CONTROL 2
+      19  01/03   23  13  DC3  (Ctrl-S)  DEVICE CONTROL 3 (XOFF)
+      20  01/04   24  14  DC4  (Ctrl-T)  DEVICE CONTROL 4
+      21  01/05   25  15  NAK  (Ctrl-U)  NEGATIVE ACKNOWLEDGE
+      22  01/06   26  16  SYN  (Ctrl-V)  SYNCHRONOUS IDLE
+      23  01/07   27  17  ETB  (Ctrl-W)  END OF TRANSMISSION BLOCK
+      24  01/08   30  18  CAN  (Ctrl-X)  CANCELA
+      25  01/09   31  19  EM   (Ctrl-Y)  END OF MEDIUM
+      26  01/10   32  1A  SUB  (Ctrl-Z)  SUBSTITUTE
+      27  01/11   33  1B  ESC  (Ctrl-[)  ESCAPE                       <ESC>
+      28  01/12   34  1C  FS   (Ctrl-\)  FILE SEPARATOR
+      29  01/13   35  1D  GS   (Ctrl-])  GROUP SEPARATOR
+      30  01/14   36  1E  RS   (Ctrl-^)  RECORD SEPARATOR
+      31  01/15   37  1F  US   (Ctrl-_)  UNIT SEPARATOR
+
+Legend:
+  Dec      The decimal code for the character
+  Row/Col  The decimal row/column representation for the character
+  Oct      The octal (base 8) code for the character
+  Hex      The hexadecimal (base 16) code for the character
+  Keycode  The Vim key notation
+
+The table of unprintable ACSII control characters has been copied from http://www.columbia.edu/kermit/ascii.html
+
+NOTE: To obtain the Vim keycode for a certain key, enter <ctrl-K> in input mode and then press the key.
+
+
+Samples
+-------
+
+1.
+Transform a line of text from:
+map - an ex command which allow you to associate
+
+to:
+.IP "map" 10n
+An ex command which allow you to associate
+
+key mapping:
+:map <F2> I.IP "<ESC>ea" 10n<CR><ESC>3x~
+
+2.
+Prefix current line with #--
+
+key mapping:
+:map <F2> 0i#--<ESC><CR>
+
+@-function:
+
+Here we map the command sequence to register h.
+
+First solution:
+   Start in normal mode and enter the sequence "qh0i#--<press ESC>+q", without the enclosing double quotes. 
+
+   This means:
+   qh
+      start recording to register h
+   0i
+      position the cursor to the begin of line and enter input mode
+   #--<press ESC>  
+      enter the string #-- in input mode and leave the input mode
+   +q  
+      position the cursor to the next line and stop recording
+
+   Apply @-function entering @h in normal mode.
+
+Second solution:
+   Start in normal mode and enter the sequence "0i#--<Crtl-V><press ESC>+", without the enclosing double quotes.
+
+   This results in:
+      0i#--+
+   Now mark this string in visual mode and yank to register h entering "hy while in visul mode.
+
+3.
+Swap two adjacent words
+(Robbins pp. 107)
+Note: None of the solutions given by Robins work for words at the line's end.
+
+4.
+Suppose a multi-file Vim session. 
+Define a command sequence so that we quit the current file and start editing the next one.
+
+key mapping:
+:map <F2> :q<CR>:ne<CR>
+
+5.
+Map e, in normal mode, to ea, i.e. insert at the end of the curent word.
+(Robbins p. 107)
+
+key mapping:
+:map e ea
+
+6.
+Surround a word with troff emboldenig tags, e.g. \fBTheWord\fP, assume the cursor is at the beginning of the word.
+(Robbins p. 108)
+
+key mapping:
+:map <F2> i\fB<ESC>ea\fP<ESC>
+
+7.
+Surround a word with HTML emboldenig tags, e.g. <B>TheWord</B>, assume the cursor is at arbitrary position of the word.
+(Robbins p. 108)
+
+key mapping:
+:map <F2> lbi<B><ESC>ea</B><ESC>
+
+
+aaaa
+bbbb
+cccc
+   dddd
+ljjklj  kjkjkjkj lllll
+jjhjk
+
+<BS><Del><End><Home><Help><PageUp><PageDown><Help>XX
+

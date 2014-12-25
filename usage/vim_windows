@@ -1,0 +1,77 @@
+
+Basic Buffer and Window Handling
+================================
+
+
+Commands for splitting windows
+------------------------------
+
+ex command             vim command
+
+split                  ^Ws         Split window horizontally.
+
+vsplit                 ^Wv         Split window vertically.
+
+new                    ^Wn         Split window horizontally and run autocommands, see help.
+
+vnew                   None        Split window vertically and run autocommands, see help.
+
+
+vim commands for moving around windows
+--------------------------------------
+Note: Use h j k l mnemonics!
+
+^Wh   Move cursor to the window left of current one.
+^Wl   Move cursor to the window right of current one.
+
+^Wj   Move cursor to the window below current one.
+^Wk   Move cursor to the window above current one.
+
+^Ww   Move cursor through windows top-down, left-right.
+^Ww   Move cursor through windows top-down, left-right.
+
+^Wt  Move cursor to top-left window.
+^Wb  Move cursor to bottom-right window.
+^Wp  Move cursor to the previous window.
+
+
+vim commands for resizing windows^
+--------------------------------------
+^W=  Make all windows (almost) equally high and wide
+
+^W-  Decrease current window height by 1
+^W+  Increase current window height by 1
+^W_  Set current window height to highest possible.
+
+^W<  Decrease current window width by 1
+^W>  Increase current window width by 1
+^W|  Set current window width to widest possible.
+
+   relevant ex commands
+      resize
+      vertical resize
+
+   relevant options
+      winheight
+      winwidth
+      equalalways
+      eadirection
+      cmdheight
+      winminheight
+      winminwidth
+
+
+ex buffer commands
+------------------
+buffers
+files
+ls        Show all buffers.
+
+windo
+bufdo
+
+
+
+
+
+
