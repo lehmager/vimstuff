@@ -1,0 +1,6 @@
+ Give a summary for repeat actions
+
+ :[addr]@:   Repeat the last command-line at line [addr] .
+:[addr]@:		Repeat last command-line.  First set cursor at line
+@:			Repeat last command-line [count] times.
+		"@:" to repeat the previous command-line command.
