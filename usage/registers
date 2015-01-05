@@ -56,8 +56,9 @@
 
 == Related Vim commands ==
  d, dd, D, x   Delete commands.
- p, P          Put commands.
  c, s          Change and substitute commands.
+ p, P          Put commands.
+ q             Command recording to a register.
  y, yy, Y      Yank commands.
 
 
@@ -70,7 +71,7 @@
        :reg 1-3  Display registers 1 to 3.
 
  :[line]put [x]   Put the text [from register x] after [line] (default current line).This always works linewise.
-
+ 
     sample
        V3j"eY:66put e
        Where V3j"eY copies three lines to register e starting from current line.
@@ -78,39 +79,42 @@
 
  :[range]y[ank] [x]      Yank [range] lines [into register x] .
 
-
 == Recording to a register and @-functions ==
+=== Recording to a register === 
 
- qx   Record typed characters into register x, where x is from {0-9a-z"} .
-			(uppercase to append).
-
+ qx   Record typed characters into register x, where x is from {0-9a-zA-Z"} , use uppercase to append).
  q    Stops recording.
 
+=== @-functions ===
 
-@-Functions
-
- @x   Execute the contents(commands) of register x, where x is from {a-z".=*} .
-
-   sample
-      Define @-function swapping current line for next line.
-
-      First solution:
-         While in normal mode type in current line "qaddpq" (without the enclosing double quotes)
-         This records the string ddp to register a. You may verify this fact by entering :reg a
+ @x         Execute the contents(commands) of register x, where x is from {a-z".=*} .
+ @:         Repeats the last command-line because register : contains the most recent executed command-line.
+:[addr]@x   Execute the contents of register x at line [addr] as an ex command where x is from  {0-9a-z".=*} .
+  
+==== Sample ====
+ Define @-function swapping current line for next line.
+       
+ First solution
+    While in normal mode type in current line "qaddpq" (without the enclosing double quotes)
+    This records the string ddp to register a. You may verify this fact by entering :reg a
+   
+ Second solution
+    Write the string ddp to a separate line. Position cursor to begin of line and enter the string "byw
+    thus mapping the string ddp to register b .
       
-      Second solution:
-         Write the string ddp to a separate line. Position cursor to begin of line and enter the string
-         "byw
-         thus mapping the string ddp to register b .
-      
-      Third solution:
-         Write the string ddp to a separate line. Now mark this string in visual mode and yank to register c
-         entering "cy while in visul mode.
+ Third solution
+    Write the string ddp to a separate line. Now mark this string in visual mode and yank to register c
+    entering "cy while in visul mode.
+   
+ Now entering @a or @b or @c in normal mode will swap lines.
 
-      Now entering @a or @b or @c in normal mode will swap lines.
+=== Repeating @-functions ===
+
+ @@          Repeat the previous @x where x is from {0-9a-z":*} .
+ :[addr]@@   Repeat the previous :@x where x is from {0-9a-z"} .
 
 
-'''Miscellaneous Links'''
+== Miscellaneous Links ==
 
 http://vimdoc.sourceforge.net/htmldoc/change.html#registers
 
@@ -127,5 +131,4 @@ http://vimcasts.org/episodes/meet-the-yank-register/
 http://vimcasts.org/episodes/using-vims-named-registers/
 
 http://stackoverflow.com/questions/11489428/how-to-make-vim-paste-from-and-copy-to-systems-clipboard
-
 
