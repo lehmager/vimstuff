@@ -42,18 +42,6 @@
  / - Contains the most recent search-pattern.
 
 
-
-=== The yank register ===
-
- Numbered register 0 contains the text from the most recent yank command, That is why it is also called the yank register.
- The contents of the yank register may always be retrieved by "0p .
-
-
-
-=== Selection and drop registers ===
- (Add this paragraph!)
-
-
 == Related Vim commands ==
  d, dd, D, x   Delete commands.
  c, s          Change and substitute commands.
@@ -62,7 +50,7 @@
  y, yy, Y      Yank commands.
 
 
-== Related ex commands ==
+== Related Ex commands ==
 
  :reg[isters] {arg}	Display the contents of the numbered and named registers.
     samples
@@ -75,9 +63,20 @@
     sample
        V3j"eY:66put e
        Where V3j"eY copies three lines to register e starting from current line.
-       The ex command :66put e inserts the three lines from register e after line 66 .
+       The Ex command :66put e inserts the three lines from register e after line 66 .
 
  :[range]y[ank] [x]      Yank [range] lines [into register x] .
+
+
+== The yank register ==
+
+ Numbered register 0 contains the text from the most recent yank command, That is why it is also called the yank register.
+ The contents of the yank register may always be retrieved by "0p .
+
+
+== Selection and drop registers ==
+ (Add this paragraph!)
+
 
 == Recording to a register and @-functions ==
 === Recording to a register === 
@@ -89,7 +88,9 @@
 
  @x         Execute the contents(commands) of register x, where x is from {a-z".=*} .
  @:         Repeats the last command-line because register : contains the most recent executed command-line.
-:[addr]@x   Execute the contents of register x at line [addr] as an ex command where x is from  {0-9a-z".=*} .
+  
+ :[addr]@x   Execute the contents of register x at line [addr] as an Ex command where x is from  {0-9a-z".=*} .
+ :[addr]@:   Repeat last command-line. First set cursor at line [addr] .
   
 ==== Sample ====
  Define @-function swapping current line for next line.
@@ -104,14 +105,14 @@
       
  Third solution
     Write the string ddp to a separate line. Now mark this string in visual mode and yank to register c
-    entering "cy while in visul mode.
+    entering "cy while in visual mode.
    
  Now entering @a or @b or @c in normal mode will swap lines.
 
 === Repeating @-functions ===
 
  @@          Repeat the previous @x where x is from {0-9a-z":*} .
- :[addr]@@   Repeat the previous :@x where x is from {0-9a-z"} .
+ :[addr]@@   Repeat the previous :@x at line [addr] where x is from {0-9a-z"} .
 
 
 == Miscellaneous Links ==
