@@ -1,0 +1,32 @@
+== Basic help operations ==
+
+=== Ex help command ===
+
+ :help      Opens the help file in a separate window.
+ :help word Look for help entries for "word". Hit CTRL-D to see matching help entries for "word".
+            Then hit the Tab key to step through the list of entries.
+
+
+
+== Related Vim commands ==
+ ???
+ d, dd, D, x   Delete commands.
+ c, s          Change and substitute commands.
+ p, P          Put commands.
+ q             Command recording to a register.
+ y, yy, Y      Yank commands.
+
+
+== Related Ex commands ==
+
+ :h[elp]   See above.
+
+
+
+== Miscellaneous references and links==
+
+ Robbins et.al., 7th edition, p 159
+
+ http://vimdoc.sourceforge.net/htmldoc/cmdline.html#c_CTRL-D
+
+ http://vim.wikia.com/wiki/Learn_to_use_help
