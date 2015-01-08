@@ -1,32 +1,62 @@
-== Basic help operations ==
+== Basics ==
 
 === Ex help command ===
 
- :help      Opens the help file in a separate window.
- :help word Look for help entries for "word". Hit CTRL-D to see matching help entries for "word".
-            Then hit the Tab key to step through the list of entries.
+ :help      
+    Opens the help file in a separate window.
+ 
+ :help <word> 
+    Look for help entries for <word>. Hit Return to see the first matching help entry.
+    Hit CTRL-D to see all matching help entries for <word>. Then hit the Tab key to step through the list of entries.
 
+ It is possible to further specify the context for the help command by adding a specific prefix
+ to the command's argument :help <prefix><word>
+ 
+ Mode                      Prefix     Example
+ Normal mode command       (nothing)  :help x
+ Visual mode command       v_         :help v_u
+ Insert mode comman        i_         :help i_<Esc>
+ Command-line command      :          :help :quit
+ Command-line editing      c_         :help c_<Del>
+ Vim command argument      -          :help -r
+ Option                    '          :help 'textwidth'
+
+=== Navigating with tags ===
+
+ To jump to a subject position the cursor on a tag and hit CTRL-].
+ If the mouse is enabeled double-click the left mouse button on a tag.
+ 
+ To jump back hit CTRL-T or CTRL-O; repeat to go further back.
+ 
+ To open a subject in a new window position the cursor on a tag and hit CTRL-W CTRL-] or CTRL-W ].
 
 
 == Related Vim commands ==
- ???
- d, dd, D, x   Delete commands.
- c, s          Change and substitute commands.
- p, P          Put commands.
- q             Command recording to a register.
- y, yy, Y      Yank commands.
-
+ /             Forward search command.
+ CTRL-]        Jump to the definition of the keyword under the cursor.
+ CTRL-T        Jump to older entry in the tag stack.
+ CTRL-W ]      Split current window in two.  Use identifier under cursor as a tag and jump to it in the new upper window.
 
 == Related Ex commands ==
 
- :h[elp]   See above.
+ :h[elp]     See above.
+ :helpg[rep] Search all help text files.
+ :ls         Show all buffers.
 
+
+== Tips and tricks ==
+ To search a file of the Vim help system just use the / command.
+ 
+ To see all files of the Vim help system that exist as open buffers run ls! .
+ Open the buffer numbered n entering :e#n .
 
 
 == Miscellaneous references and links==
 
- Robbins et.al., 7th edition, p 159
-
+ Robbins et al., 7th ed., p. 159
+ Robbins et al., 7th ed., p. 187
+ Robbins et al., 7th ed., p. 190
+ 
  http://vimdoc.sourceforge.net/htmldoc/cmdline.html#c_CTRL-D
-
+ 
  http://vim.wikia.com/wiki/Learn_to_use_help
