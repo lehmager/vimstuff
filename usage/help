@@ -17,7 +17,7 @@
  Visual mode command       v_         :help v_u
  Insert mode comman        i_         :help i_<Esc>
  Command-line command      :          :help :quit
- Command-line editing      c_         :help c_<Del>
+ Command-line editing      c_         :help c_<Insert>
  Vim command argument      -          :help -r
  Option                    '          :help 'textwidth'
 
