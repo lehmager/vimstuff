@@ -1,0 +1,28 @@
+== Basics ==
+
+ These (normal mode) commands move the cursor to the specified column in the current line.
+ They stop at the first column and at the end of the line.
+ 
+ fx   Move to the first occurrence of x to the right where x denotes a character.
+      The cursor is placed on the character x.
+ 
+ Fx   Move to the first occurrence of x to the left where x denotes a character.
+      The cursor is placed on the character x.
+ 
+ tx   Move till before first occurrence of x to the right where x denotes a character.
+      The cursor is placed on the character left of x.
+ 
+ Tx   Move till after first occurrence of x to the left where x denotes a character. 
+      The cursor is placed on the character right of x.
+ 
+ ;    Repeat latest f, F, t or T command.
+ 
+ ,    Repeat latest f, F, t or T command in opposite direction.
+
+
+== Tips and tricks ==
+ May be added.
+
+== Miscellaneous references and links==
+
+ http://vimdoc.sourceforge.net/htmldoc/motion.html#F 
