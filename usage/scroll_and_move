@@ -1,0 +1,27 @@
+== Basic scrolling ==
+
+ CTRL-B    Scroll window one screen backwards (upwards) in the buffer.
+ CTRL-F    Scroll window one screen forwards (downwards) in the buffer.
+ 
+ CTRL-U    Scroll window  half a screen upwards in the buffer.
+ CTRL-D    Scroll window  half a screen downwards in the buffer.
+
+== Scrolling relative to cursor ==
+
+ z <CR> Move current line to top of screen and scroll.
+        Put cursor at first non-blank in the line.
+ zt     Same as above, but leave the cursor in the same column.
+ 
+ z.     Move current line to center of screen and scroll.
+        Put cursor at first non-blank in the line.
+ zz     Same as above, but leave the cursor in the same column.
+        CAUTION: If caps-lock is on, this command becomes "ZZ": write buffer and exit!
+ 
+ z-     Move current line to bottom of screen and scroll.
+        Put cursor at first non-blank in the line.
+ zb     Same as above, but leave the cursor in the same column.
+
+== Miscellaneous references and links==
+
+ http://vimdoc.sourceforge.net/htmldoc/motion.html#F 
+ http://vimdoc.sourceforge.net/htmldoc/scroll.html#scroll.txt
