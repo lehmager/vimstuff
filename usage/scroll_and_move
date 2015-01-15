@@ -21,6 +21,8 @@
         Put cursor at first non-blank in the line.
  zb     Same as above, but leave the cursor in the same column.
 
+ The above commands may be prefixed by a line number. The line referred to will be used in place of the current line.
+
 == Miscellaneous references and links==
 
  http://vimdoc.sourceforge.net/htmldoc/motion.html#F 
