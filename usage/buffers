@@ -1,0 +1,45 @@
+== VIM Buffers ==
+
+A Vim buffer is a file loaded into memory for editing.
+
+=== Buffer commands ===
+
+ :buffers      ... list buffers
+ :ls
+
+ :bN           ... switch to buffer N
+ :Nb
+ N Ctrl-^
+
+ Ctrl-^        ... toggle between last and current buffer
+
+ :bd [N]       ... remove buffer N from list of buffers
+ :[M,N]bd      ... remove buffers m to N from list of buffers
+
+ :edit .       ... open the file browser
+ :e.
+
+ :Explore      ... open the file browser in directory of current file
+ :E
+
+=== File browser navigation ===
+
+Navigate in file browser like in a "normal" VIM session:
+
+ Use h j k l / to move
+ <CR> to select a file or directory
+
+ -       ... move directory up 
+ %       ... create a new file
+ d       ... create a new directory
+ D       ... delete a file or directry
+ R       ... rename a file or directory
+
+
+=== Useful links ===
+
+ File explorer video tutorial: http://vimcasts.org/episodes/the-file-explorer/
+ VIM buffer FAQ                http://vimhelp.appspot.com/vim_faq.txt.html#faq-8
+ Buffer Tips                   http://vim.wikia.com/wiki/VimTip686
+ Misc                          http://eseth.org/2007/vim-buffers.html
+
